@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<project name="Critter" default="run">
+	
+	<path id="compile.path">
+		<pathelement location="./../../gridworld.jar" />
+	</path>
+
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="bin" />
+		<javac srcdir="." destdir="bin" classpathref="compile.path" includeantruntime="true">
+		</javac>
+	</target>
+
+	<target name="run" depends="compile">
+		<java fork="true" classname="ChameleonRunner" classpathref="compile.path">
+			<classpath path="bin" />
+		</java>
+	</target>
+</project>
